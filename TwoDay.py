@@ -82,4 +82,8 @@ t = [1, 2, 3]
 print(quadratic(t[0], t[1], t[2]))
 print('二元一次方程%sx*2+%sx+%s=0的解为:' % (t[0], t[1], t[2]), quadratic(t[0], t[1], t[2]))
 
+# ThreeDay tips
+print(quadratic(*t))
+print('二元一次方程%sx*2+%sx+%s=0的解为:' % (t[0], t[1], t[2]), quadratic(*t))
+print('二元一次方程{0}x*2+{1}x+{2}=0的解为:'.format(*t), quadratic(*t))
 
