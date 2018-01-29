@@ -121,3 +121,4 @@ def produce(x, *nums):
 
 
 print(produce(5, 6))
+# 有借鉴
