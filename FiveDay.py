@@ -79,3 +79,38 @@ L1 = ['Hello', 'World', 'IBM', 18, 'Apple', None]
 L2 = [s.lower() for s in L1 if isinstance(s, Iterable) is True]
 print(L2)
 
+g = (x*x for x in range(10))
+print(next(g))
+for n in g:
+    print(n)
+
+
+# 斐波拉契数列
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        print(n, b)
+        a, b = b, a+b
+        n = n+1
+    return 'done'
+
+
+print(fib(8))
+
+
+# 大佬牛皮
+def triangle():
+    ret =[1]
+    while True:
+        yield ret
+        for i in range(1, len(ret)):
+            ret[i] = pre[i] + pre[i-1]
+        ret.append(1)
+        pre = ret[:]
+
+
+o = triangle()
+print(next(o))
+print(next(o))
+print(next(o))
+print(next(o))
