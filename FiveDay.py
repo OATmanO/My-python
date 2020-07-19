@@ -26,7 +26,6 @@ def trim(s):
 tring = ' abjg '
 print(trim(tring))
 
-
 # 迭代
 d = {'a': 1, 'b': 2, 'c': 3}
 
@@ -39,9 +38,10 @@ for value in d.values():
 for k, v in d.items():
     print(k, v)
 
-from collections import Iterable
-print(isinstance('abc', Iterable))
-print(isinstance(123, Iterable))
+import collections.abc
+
+print(isinstance('abc', collections.abc.Iterable))
+print(isinstance(123, collections.abc.Iterable))
 
 for i, value in enumerate(['a', 'b', 'c']):
     print(i, value)
@@ -63,23 +63,24 @@ def findMinAndMax(L):
 
 print(findMinAndMax([1, 2, 3, 4]))
 
-print([x*x for x in range(1, 10)])
-print([x*x for x in range(1, 11) if x % 2 == 0])
-print([m+n for m in 'Abc' for n in 'def'])
+print([x * x for x in range(1, 10)])
+print([x * x for x in range(1, 11) if x % 2 == 0])
+print([m + n for m in 'Abc' for n in 'def'])
 import os
+
 print([d for d in os.listdir('.')])
 d = {'a': '1', 'b': '2', 'c': '3'}
-print([k+'='+v for k, v in d.items()])
+print([k + '=' + v for k, v in d.items()])
 
 L = ['Hello', 'World', 'IBM', 'Apple']
 print([s.lower() for s in L])
 
 L1 = ['Hello', 'World', 'IBM', 18, 'Apple', None]
 
-L2 = [s.lower() for s in L1 if isinstance(s, Iterable) is True]
+L2 = [s.lower() for s in L1 if isinstance(s, collections.abc.Iterable) is True]
 print(L2)
 
-g = (x*x for x in range(10))
+g = (x * x for x in range(10))
 print(next(g))
 for n in g:
     print(n)
@@ -90,8 +91,8 @@ def fib(max):
     n, a, b = 0, 0, 1
     while n < max:
         print(n, b)
-        a, b = b, a+b
-        n = n+1
+        a, b = b, a + b
+        n = n + 1
     return 'done'
 
 
@@ -100,11 +101,11 @@ print(fib(8))
 
 # 大佬牛皮
 def triangle():
-    ret =[1]
+    ret = [1]
     while True:
         yield ret
         for i in range(1, len(ret)):
-            ret[i] = pre[i] + pre[i-1]
+            ret[i] = pre[i] + pre[i - 1]
         ret.append(1)
         pre = ret[:]
 
